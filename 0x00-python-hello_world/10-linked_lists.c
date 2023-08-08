@@ -3,60 +3,61 @@
 #include "lists.h"
 
 /**
- * print_listint - prints all elements of a lstint_t list
+ * print_listint - prints all elements of a listint_t list
  * @h: pointer to head of list
  * Return: number of nodes
  */
-size_t print_listint(const lstint_t *hh)
+size_t print_listint(const listint_t *h)
 {
-	const lstint_t *current_l;
-	unsigned int a;
+    const listint_t *runing;
+    unsigned int nds; /* number of nodes */
 
-	current_l = a;
-	a = 0;
-	while (current_l != NULL)
-	{
-		printf("%i\n", current_l->a);
-		current_l = current_l->nxt;
-		a++;
-	}
-	return (a);
+    runing = h;
+    nds = 0;
+    while (runing != NULL)
+    {
+        printf("%i\n", runing->n);
+        runing = runing->next;
+        nds++;
+    }
+
+    return (nds);
 }
 
 /**
- * add_nodeint - adds a new_l node at the beginning of a lstint_t list
+ * add_nodeint - adds a new node at the beginning of a listint_t list
  * @head: pointer to a pointer of the start of the list
  * @n: integer to be included in node
- * Return: address of the new_l element or NULL if it fails
+ * Return: address of the new element or NULL if it fails
  */
-lstint_t *add_nodeint(lstint_t **head, const int a)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	lstint_t *new_l;
+    listint_t *nw;
 
-	new_l = malloc(sizeof(lstint_t));
-	if (new_l == NULL)
-	{
-		return (NULL);
-	}
-	new_l->a = a;
-	new_l->nxt = *head;
-	*head = new_l;
-	return (new_l);
+    nw = malloc(sizeof(listint_t));
+    if (nw == NULL)
+        return (NULL);
+
+    nw->n = n;
+    nw->next = *head;
+    *head = nw;
+
+    return (nw);
 }
 
 /**
- * free_listint - frees a lstint_t list
+ * free_listint - frees a listint_t list
  * @head: pointer to list to be freed
  * Return: void
  */
-void free_listint(lstint_t *head)
+void free_listint(listint_t *head)
 {
-	lstint_t *current_l;
+    listint_t *runing;
 
-	while (head != NULL)
-	{
-		current_l = head;
-		head = head->nxt;
-		free(current_l);
-	}
+    while (head != NULL)
+    {
+        runing = head;
+        head = head->next;
+        free(runing);
+    }
 }

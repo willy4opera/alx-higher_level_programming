@@ -2,29 +2,29 @@
 
 /**
  * insert_node - Inserts a number into a sorted singly-linked list.
- * @HD: A pointer the head of the linked list.
- * @num: The number to insert.
+ * @head: A pointer the head of the linked list.
+ * @number: The number to insert.
  *
  * Return: If the function fails - NULL.
  *         Otherwise - a pointer to the new node.
  */
-listint_t *insert_node(listint_t **HD, int num)
+listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *nd = *HD, *nw;
+	listint_t *nd = *head, *nw;
 
 	nw = malloc(sizeof(listint_t));
 	if (nw == NULL)
 		return (NULL);
-	nw->n = num;
+	nw->n = number;
 
-	if (nd == NULL || nd->n >= num)
+	if (nd == NULL || nd->n >= number)
 	{
 		nw->next = nd;
-		*HD = nw;
+		*head = nw;
 		return (nw);
 	}
 
-	while (nd && nd->next && nd->next->n < num)
+	while (nd && nd->next && nd->next->n < number)
 		nd = nd->next;
 
 	nw->next = nd->next;

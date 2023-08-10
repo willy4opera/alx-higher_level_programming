@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 def magic_calculation(num1, num2, num3):
     if num1 < num2:
         return(num3)

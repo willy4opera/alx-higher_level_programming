@@ -30,5 +30,5 @@ Resources
     Python documentation
     Youtube series
     Pycodestyle guide
-    Understanding The Zen of Python
+    Understanding The Zen of Python pr
 

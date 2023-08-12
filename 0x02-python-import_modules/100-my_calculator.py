@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    
+
     from calculator_1 import add, sub, mul, div
     import sys
 
@@ -9,11 +9,11 @@ if __name__ == "__main__":
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
-    opts = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(opts.keys()):
+    ops = {"+": add, "-": sub, "*": mul, "/": div}
+    if sys.argv[2] not in list(ops.keys()):
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
 
-    xx = int(sys.argv[1])
-    yy = int(sys.argv[3])
-    print("{} {} {} = {}".format(xx, sys.argv[2], yy, opts[sys.argv[2]](xx, yy)))
+    a = int(sys.argv[1])
+    b = int(sys.argv[3])
+    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, 

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
+# Removes character C and c
 
 def no_c(my_string):
-    strn_cpy = [num for num in my_string if num != 'c' or num != 'C']
+    strn_cpy = [n for n in my_string if n != 'c' or n != 'C']
     return ("".join(strn_cpy))

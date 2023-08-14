@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-#Matrix Intege
+# Matrix Intege
 
 def print_matrix_integer(matrix=[[]]):
     for num in range(len(matrix)):

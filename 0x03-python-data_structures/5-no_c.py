@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 # Removes character C and c
 
 def no_c(my_string):

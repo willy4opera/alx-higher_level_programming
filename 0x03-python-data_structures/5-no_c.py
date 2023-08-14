@@ -3,5 +3,6 @@
 # Removes character C and c
 
 def no_c(my_string):
-    strn_cpy = [n for n in my_string if n != 'c' or n != 'C']
-    return ("".join(strn_cpy))
+    new_s = my_string.translate({ord('c'): None})
+    new_s = new_s.translate({ord('C'): None})
+    return new_s

@@ -3,10 +3,10 @@
 # Matrix Intege
 
 def print_matrix_integer(matrix=[[]]):
-    for num in range(len(matrix)):
-        for num2 in range(len(matrix[num])):
-            Mprint("{:d}".format(matrix[num][num2j]), end="")
-            if num2 != (len(matrix[num]) - 1):
+    for xx in range(len(matrix)):
+        for yy in range(len(matrix[xx])):
+            print("{:d}".format(matrix[xx][yy]), end="")
+            if yy != (len(matrix[xx]) - 1):
                 print(" ", end="")
 
         print("")

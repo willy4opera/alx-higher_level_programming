@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 def to_subtract(list_num):
-    subt = 0
+    to_sub = 0
     max_list = max(list_num)
 
-    for num in list_num:
-        if max_list > num:
-            subt += num
+    for n in list_num:
+        if max_list > n:
+            to_sub += n
 
-    return (max_list - subt)
+    return (max_list - to_sub)
 
 
 def roman_to_int(roman_string):
@@ -24,17 +24,17 @@ def roman_to_int(roman_string):
     last_rom = 0
     list_num = [0]
 
-    for chr in roman_string:
+    for ch in roman_string:
         for r_num in list_keys:
-            if r_num == chr:
-                if rom_n.get(chr) <= last_rom:
-                    num += subttract(list_num)
-                    list_num = [rom_n.get(chr)]
+            if r_num == ch:
+                if rom_n.get(ch) <= last_rom:
+                    num += to_subtract(list_num)
+                    list_num = [rom_n.get(ch)]
                 else:
-                    list_num.append(rom_n.get(chr))
+                    list_num.append(rom_n.get(ch))
 
-                last_rom = rom_n.get(chr)
+                last_rom = rom_n.get(ch)
 
-    num += subttract(list_num)
+    num += to_subtract(list_num)
 
     return (num)

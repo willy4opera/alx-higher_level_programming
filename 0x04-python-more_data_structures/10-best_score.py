@@ -7,10 +7,10 @@ def best_score(a_dictionary):
     if not isinstance(a_dictionary, dict) or len(a_dictionary) == 0:
         return None
 
-    retlist = list(a_dictionary.keys())[0]
-    bdata = a_dictionary[retlist ]
+    lst = list(a_dictionary.keys())[0]
+    bda = a_dictionary[lst ]
     for x, y in a_dictionary.items():
-        if y > bdata:
-            bdata = y
-            retlist  = x
-    return (retlist)
+        if y > bda:
+            bda = y
+            lst  = x
+    return (lst)

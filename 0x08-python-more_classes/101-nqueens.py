@@ -1,62 +1,71 @@
 #!/usr/bin/python3
+
 """
-N queens backtracking program to print the coordinates of N queens
-on an NxN grid such that they are all in non-attacking positions
+Resolve NQUEEN Problem
 """
 
 
-from sys import argv
-
-if __name__ == "__main__":
-    arry = []
-    if len(argv) != 2:
-        print("Usage: nqueens N")
-        exit(1)
-    if argv[1].isdigit() is False:
-        print("N must be a number")
-        exit(1)
-    n = int(argv[1])
-    if n < 4:
-        print("N must be at least 4")
-        exit(1)
-
-    # initialize the answer list
-    for i in range(n):
-        arry.append([i, None])
-
-    def existing(y):
-        """check that a queen does not already exist in that y value"""
-        for x in range(n):
-            if y == arry[x][1]:
-                return True
-        return False
-
-    def dev_reject(x, y):
-        """determines whether or not to reject the solution"""
-        if (existing(y)):
+def dev_ch(queen, column):
+    """
+    function that checks if the position of each queen is valid
+    """
+    for i in range(column):
+        if queen[i] == queen[column]:
             return False
-        i = 0
-        while(i < x):
-            if abs(a[i][1] - y) == abs(i - x):
-                return False
-            i += 1
+        if abs(queen[i] - queen[column]) == abs(i - column):
+            return False
+    return True
+
+
+def dev_ful(queen, column):
+    """
+    Recursive Function that change the queen when we
+    get the correct position with no problems
+    """
+
+    temp = len(queen)
+    exito = 0
+
+    if column == temp:
+        result = []
+
+        for i in range(len(queen)):
+            result.append([i, queen[i]])
+
+        print(result)
         return True
 
-    def clear_arry(x):
-        """clears the answers from the point of failure on"""
-        for i in range(x, n):
-            arry[i][1] = None
+    queen[column] = -1
 
-    def nqueens(x):
-        """recursive backtracking function to find the solution"""
-        for y in range(n):
-            clear_arry(x)
-            if dev_reject(x, y):
-                arry[x][1] = y
-                if (x == n - 1):  # arryccepts the solution
-                    print(arry)
-                else:
-                    nqueens(x + 1)  # moves on to next x value to continue
+    while(queen[column] < temp - 1 or exito == 1):
+        queen[column] = queen[column] + 1
+        if dev_ch(queen, column) is True:
+            if column != temp:
+                dev_ful(queen, (column + 1))
+            else:
+                exito = 1
+                break
+    return True
 
-    # start the recursive process at x = 0
-    nqueens(0)
+
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+
+    if not sys.argv[1].isdigit():
+        print("N must be a number")
+        sys.exit(1)
+
+    if int(sys.argv[1]) < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+
+    queen = []
+    temp = int(sys.argv[1])
+    for i in range(temp):
+        queen.append(-1)
+
+    dev_ful(queen, 0)

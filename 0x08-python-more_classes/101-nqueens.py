@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """SThis program solves the N-queens puzzle.
 
 It Determines all possible solutions to placing N

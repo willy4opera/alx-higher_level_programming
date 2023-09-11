@@ -5,4 +5,4 @@
 def lookup(obj):
     """Return a list of an object's available attributes."""
     result = dir(obj)
-    return (result )
+    return (resul)

@@ -8,9 +8,9 @@ class MyInt(int):
 
     def __eq__(self, value):
         """Override == opeartor with != behavior."""
-        res = self.real != value
+        res = (self.real != value)
         return res
     def __ne__(self, value):
         """Override != operator with == behavior."""
-        res = self.real == value
+        res = (self.real == value)
         return res

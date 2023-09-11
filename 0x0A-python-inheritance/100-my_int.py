@@ -10,6 +10,7 @@ class MyInt(int):
         """Override == opeartor with != behavior."""
         res = (self.real != value)
         return res
+
     def __ne__(self, value):
         """Override != operator with == behavior."""
         res = (self.real == value)

@@ -4,10 +4,10 @@
 
 
 class BaseGeometry:
-    """We reprsented the base geometry here."""
+    """Here, we reprsented the base geometry."""
 
     def area(self):
-        
+        """Not yet implemented."""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):

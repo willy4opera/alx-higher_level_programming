@@ -7,17 +7,16 @@ prints the following statistics:
     - Count of read status codes up to that point.
 """
 
-
 def print_stats(size, status_codes):
     """Print accumulated metrics.
 
     Args:
-        size (int): The accumuated read file size.
+        size (int): The accumulated read file size.
         status_codes (dict): The accumulated count of status codes.
     """
     print("File size: {}".format(size))
-    for k in sorted(status_codes):
-        print("{}: {}".format(k, status_codes[k]))
+    for key in sorted(status_codes):
+        print("{}: {}".format(key, status_codes[key]))
 
 if __name__ == "__main__":
     import sys

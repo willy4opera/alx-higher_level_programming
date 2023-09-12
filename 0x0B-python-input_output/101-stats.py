@@ -29,13 +29,13 @@ if __name__ == "__main__":
         for k in sorted(codes.keys()):
             if codes[k]:
                 print("{}: {}".format(k, codes[k]))
-    i = 1
+    num = 1
     try:
         for line in sys.stdin:
             check_match(line)
-            if i % 10 == 0:
+            if num % 10 == 0:
                 print_stats()
-            i += 1
+            num += 1
     except KeyboardInterrupt:
         print_stats()
         raise

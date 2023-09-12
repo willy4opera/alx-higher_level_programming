@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            if count == 10:
+            if d_count == 10:
                 print_stats(d_size, d_status_codes)
                 d_count = 1
             else:
@@ -44,7 +44,7 @@ if __name__ == "__main__":
                 pass
 
             try:
-                if line[-2] in valid_codes:
+                if line[-2] in d_valid_codes:
                     if d_status_codes.get(line[-2], -1) == -1:
                         d_status_codes[line[-2]] = 1
                     else:

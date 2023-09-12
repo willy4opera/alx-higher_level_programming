@@ -9,32 +9,31 @@ prints the following statistics:
 
 
 def print_stats(size, status_codes):
-    """Here, we Print accumulated metrics.
+    """Print accumulated metrics.
 
     Args:
-        size (int): The accumulated read file size.
+        size (int): The accumuated read file size.
         status_codes (dict): The accumulated count of status codes.
     """
     print("File size: {}".format(size))
-    for key in sorted(status_codes):
-        print("{}: {}".format(key, status_codes[key]))
-
+    for k in sorted(status_codes):
+        print("{}: {}".format(k, status_codes[k]))
 
 if __name__ == "__main__":
     import sys
 
     size = 0
     status_codes = {}
-    d_valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
-    d_count = 0
+    valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+    count = 0
 
     try:
         for line in sys.stdin:
-            if d_count == 10:
+            if count == 10:
                 print_stats(size, status_codes)
-                d_count = 1
+                count = 1
             else:
-                d_count += 1
+                count += 1
 
             line = line.split()
 
@@ -44,7 +43,7 @@ if __name__ == "__main__":
                 pass
 
             try:
-                if line[-2] in d_valid_codes:
+                if line[-2] in valid_codes:
                     if status_codes.get(line[-2], -1) == -1:
                         status_codes[line[-2]] = 1
                     else:

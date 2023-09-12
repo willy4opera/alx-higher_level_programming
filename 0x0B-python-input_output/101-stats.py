@@ -23,15 +23,15 @@ def print_stats(size, status_codes):
 if __name__ == "__main__":
     import sys
 
-    d_size = 0
-    d_status_codes = {}
+    size = 0
+    status_codes = {}
     d_valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     d_count = 0
 
     try:
         for line in sys.stdin:
             if d_count == 10:
-                print_stats(d_size, d_status_codes)
+                print_stats(size, status_codes)
                 d_count = 1
             else:
                 d_count += 1
@@ -39,21 +39,21 @@ if __name__ == "__main__":
             line = line.split()
 
             try:
-                d_size += int(line[-1])
+                size += int(line[-1])
             except (IndexError, ValueError):
                 pass
 
             try:
                 if line[-2] in d_valid_codes:
-                    if d_status_codes.get(line[-2], -1) == -1:
-                        d_status_codes[line[-2]] = 1
+                    if status_codes.get(line[-2], -1) == -1:
+                        status_codes[line[-2]] = 1
                     else:
-                        d_status_codes[line[-2]] += 1
+                        status_codes[line[-2]] += 1
             except IndexError:
                 pass
 
-        print_stats(d_size, d_status_codes)
+        print_stats(size, status_codes)
 
     except KeyboardInterrupt:
-        print_stats(d_size, d_status_codes)
+        print_stats(size, status_codes)
         raise

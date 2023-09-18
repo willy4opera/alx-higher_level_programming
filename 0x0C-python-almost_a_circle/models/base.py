@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
-"""Defines a base model class."""
+"""Here, we defined the base model class."""
 import json
 import csv
 import turtle
 
 
 class Base:
-    """Base model.
+    """The Base model Here.
 
     This Represents the "base" for all other classes in project 0x0C*.
 
@@ -78,11 +78,11 @@ class Base:
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
-                new = cls(1, 1)
+                dev_new = cls(1, 1)
             else:
-                new = cls(1)
-            new.update(**dictionary)
-            return new
+                dev_new = cls(1)
+            dev_new.update(**dictionary)
+            return dev_new
 
     @classmethod
     def load_from_file(cls):

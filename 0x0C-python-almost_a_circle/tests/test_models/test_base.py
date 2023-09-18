@@ -102,4 +102,4 @@ class Dev_testinstantiation(unittest.TestCase):
 
     def dev_test_two_args(self):
         with self.assertRaises(TypeError):
-            Base(1, 2
+            Base(1, 2)

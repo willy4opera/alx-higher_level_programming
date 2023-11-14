@@ -9,7 +9,7 @@ class Square extends SquareP {
     }
     for (let numi = 0; numi < this.height; numi++) {
       let sum = '';
-      for (let numj = 0; numj < this.width; njumj++) {
+      for (let numj = 0; numj < this.width; numj++) {
         sum += c;
       }
       console.log(sum);

@@ -16,4 +16,4 @@ if __name__ == "__main__":
     for row in rows:
         print(row)
     dev_cur.close()
-    dev_connect.close()
+    dev_conn.close()

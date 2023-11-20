@@ -11,7 +11,7 @@ if __name__ == "__main__":
     dev_eng = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                             .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(dev_eng)
-    Session = sessionmaker(bind=eng)
+    Session = sessionmaker(bind=dev_eng)
     session = Session()
     for instance in session.query(State).filter(State.name.like('%a%')):
         print(instance.id, instance.name, sep=": ")

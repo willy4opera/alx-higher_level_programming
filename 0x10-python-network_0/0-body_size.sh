@@ -1,4 +1,3 @@
 #!/bin/bash
-# Code gets the byte size of the HTTP response header for a given URL.
-
-curl -s "$1" | wc -c
+# takes in a URL.
+curl -sI GET "$1" | grep -i "Content-Length" | cut -d " " -f2
